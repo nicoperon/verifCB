@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="script.js">
+    </script>
+    <script>
+        function fonction() {
+            checkCard();
+            return false;
+        }
+        $(document).click(function() {
+            girl();
+        });
+    </script>
+    <style>
+        body {
+            background-color: white;
+        }
+        
+        header {
+            width: 80%;
+            margin: auto;
+        }
+        
+        header.h1 {
+            width: 100%;
+            display: block;
+            margin: auto;
+        }
+        
+        input:valid {
+            border: 1px solid green;
+        }
+        
+        input:invalid {
+            border: 1px solid red;
+        }
+        
+        section {
+            width: 80%;
+            background-color: rgba(60, 60, 60, 0.5);
+            margin: auto;
+            padding: 30px;
+            padding-bottom: 0px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Outil de vérification de carte bancaire</h1>
+    </header>
+    <main>
+        <section class="contenu">
+            <p>Saisissez les infos de votre carte bleue pour les vérifier.</p>
+            <div class="display-td">
+                <img class="img-responsive pull-right" width="30%" src="http://www.pngmart.com/files/3/Credit-Card-Visa-And-Master-Card-PNG-File.png">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <form onSubmit="return fonction();">
+                        <legend>Carte bleue</legend>
+                        <div class="row">
+                            <div>
+                                <label>Nom</label>
+                                <div>
+                                    <input id="nom" type="text" pattern="[a-zA-Z\s]+" title="Nom" minlength="2" placeholder="Nom" required>
+                                </div>
+                            </div>
+                            <div class="mx-5">
+                                <label>Prénom</label>
+                                <div>
+                                    <input id="prenom" type="text" pattern="[a-zA-Z\s]+" title="Prenom" minlength="2" placeholder="Prénom" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="py-3">
+                            <label style="margin-left: -15px;">Numéro de carte</label>
+                            <div>
+                                <div class="row">
+                                    <div class="span3">
+                                        <input id="cardNumber" type="text" maxlength="16" pattern="\d{16}" title="Numéro de carte" placeholder="1111 2222 3333 4444" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label style="margin-left: -15px;">Date d'expiration</label>
+                            <div>
+                                <div class="row">
+                                    <div>
+                                        <select id="month">
+                                            <option value="01">Janvier</option>
+                                            <option value="02">Février</option>
+                                            <option value="03">Mars</option>
+                                            <option value="04">Avril</option>
+                                            <option value="05">Mai</option>
+                                            <option value="06">Juin</option>
+                                            <option value="07">Juillet</option>
+                                            <option value="08">Aout</option>
+                                            <option value="09">Septembre</option>
+                                            <option value="10">Octobre</option>
+                                            <option value="11">Novembre</option>
+                                            <option value="12">Décembre</option>
+                                        </select>
+                                    </div>
+                                    <div class="mx-3">
+                                        <select id="year">
+                                            <option>2017</option>
+                                            <option>2018</option>
+                                            <option>2019</option>
+                                            <option>2020</option>
+                                            <option>2021</option>
+                                            <option>2022</option>
+                                            <option>2023</option>
+                                            <option>2024</option>
+                                            <option>2025</option>
+                                            <option>2026</option>
+                                            <option>2027</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="my-3">
+                            <label style="margin-left: -15px;">Cryptograme</label>
+                            <div>
+                                <div class="row">
+                                    <div>
+                                        <input id="cryptogramme" type="text" maxlength="3" pattern="\d{3}" title="Cryptogramme" placeholder="123" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-5">
+                            <div class="row">
+                                <button type="submit" class="btn btn-success">Envoyer</button>
+                                <button type="reset" class="btn btn-warning mx-5">Vider</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Carte correcte</h4>
+                </div>
+                <div class="modal-body px-5">
+                    <div class="row">
+                        <b>Nom :</b>
+                        <div id="showName"></div>
+                    </div>
+                    <div class="row">
+                        <b>Prénom :</b>
+                        <div id="showSurname"></div>
+                    </div>
+                    <div class="row">
+                        <b>Numéro de carte :</b>
+                        <div id="showCard"></div>
+                    </div>
+                    <div class="row">
+                        <b>Crypt :</b>
+                        <div id="showCrypt"></div>
+                    </div>
+                    <div class="row">
+                        <b>Expire :</b>
+                        <div id="showExpire"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer aussi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal mauvaise date -->
+    <div class="modal fade" id="expired" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Erreur</h4>
+                </div>
+                <div class="modal-body">
+                    Carte expirée, rachetez en une !
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal d'erreur' -->
+    <div class="modal fade" id="error" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Erreur</h4>
+                </div>
+                <div class="modal-body">
+                    Carte non valide, dommage !
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
